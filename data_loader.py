@@ -1,10 +1,11 @@
 import librosa
 import cv2
 import numpy as np
+import pydub
 
 # Load the high-quality and low-quality audio files
-hq_audio, sr = librosa.load('hq/1.wav')
-lq_audio, sr = librosa.load('lq/1.wav')
+hq_audio, sr = librosa.load('hq/1.mp3')
+lq_audio, sr = librosa.load('lq/1.mp3')
 
 # Compute the spectrograms for both audio files
 hq_spectrogram = librosa.feature.melspectrogram(hq_audio, sr=sr)
@@ -21,4 +22,4 @@ lq_spectrogram = (lq_spectrogram - np.max(lq_spectrogram) / 2) / (np.max(lq_spec
 spectrograms = np.stack([lq_spectrogram, hq_spectrogram], axis=-1)
 
 # Save the spectrograms to disk
-np.save('spectrograms.npy', spectrograms)
+np.save('specs/1.npy', spectrograms)

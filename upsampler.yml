@@ -1,4 +1,6 @@
 name: upsampler
 channels:
   - conda-forge
+dependencies:
+  - python=3.9
 prefix: /opt/homebrew/Caskroom/miniforge/base/envs/upsampler
